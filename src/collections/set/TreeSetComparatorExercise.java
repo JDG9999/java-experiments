@@ -23,7 +23,7 @@ public class TreeSetComparatorExercise {
 		System.out.println("set2: " +  set2);
 	}
 	
-	public static Set<Book> treeSetDemo(Comparator comparator) {
+	public static Set<Book> treeSetDemo(Comparator<Book> comparator) {
 		Book book1 = new Book("Harry Potter", "J.K.Rowling", 1997);
 		Book book2 = new Book("Harry Potter", "J.K.Rowling", 1997);
 		Book book3 = new Book("Walden", "Henry David Thoreau", 1854);
@@ -45,26 +45,27 @@ public class TreeSetComparatorExercise {
 	}
 	
 	public static void main(String[] args) {
-		//hashSetDemo();
+		hashSetDemo();
 		treeSetDemo(new PubDateAscComparator());
 	}
 	
 }
 
-class PubDateAscComparator implements Comparator {
+class PubDateAscComparator implements Comparator<Book> {
 
 	@Override
-	public int compare(Object o1, Object o2) {
-		return ((Book) o1).getYear() - ((Book) o2).getYear() != 0 ? ((Book) o1).getYear() - ((Book) o2).getYear()
-				: ((Book) o1).getTitle().compareTo(((Book) o2).getTitle());
+	public int compare(Book o1, Book o2) {
+		return ( o1.getYear() - o2.getYear() != 0 ? 
+				 o1.getYear() - o2.getYear() :
+				 o1.getTitle().compareTo(o2.getTitle()));
 	}
 
 }
 
-class PubDateDescComparator implements Comparator {
+class PubDateDescComparator implements Comparator<Book> {
 
 	@Override
-	public int compare(Object o1, Object o2) {
+	public int compare(Book o1, Book o2) {
 		return ((Book) o2).getYear() - ((Book) o1).getYear() != 0 ? ((Book) o2).getYear() - ((Book) o1).getYear() : ((Book) o1).getTitle().compareTo(((Book) o2).getTitle());
 	}
 

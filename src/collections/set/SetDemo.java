@@ -99,14 +99,14 @@ public class SetDemo {
 	}
 
 	public static void main(String[] args) {
-		// hashSetDemo();
-		// linkedHashSetDemo
+		hashSetDemo();
+		linkedHashSetDemo();
 		treeSetDemo();
-		// treeSetDemo2();
+		treeSetDemo2();
 	}
 }
 
-class Book implements Comparable {
+class Book implements Comparable<Book> {
 	private String title;
 	private String author;
 	private int year;
@@ -188,18 +188,17 @@ class Book implements Comparable {
 	 * (author.equals((((Book)o).getAuthor()))); }
 	 */
 
-	public int compareTo(Object book) {
-		return getTitle().compareTo(((Book) book).getTitle()); // utilizing String�s compareTo
+	public int compareTo(Book book) {
+		return getTitle().compareTo(book.getTitle()); // utilizing String�s compareTo
 	}
 
 }
 
-class TitleComparator implements Comparator {
+class TitleComparator implements Comparator<Book> {
 
 	@Override
-	public int compare(Object o1, Object o2) {
-		// TODO Auto-generated method stub
-		return ((Book) o1).getTitle().compareTo(((Book) o2).getTitle());
+	public int compare(Book o1, Book o2) {
+		return o1.getTitle().compareTo(o2.getTitle());
 	}
 
 }
