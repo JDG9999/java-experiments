@@ -11,7 +11,7 @@ public class FieldsImpl implements Fields {
 	@Override
 	public void fieldsMethod() {
 		// inherit a value from an interface?
-		// instead I'm simply accessing a static field somewhere else... nothing to do with inheritance
+		// instead I'm simply accessing a static field that's somewhere else... nothing to do with inheritance
 		int newValue = Fields.value;
 		System.out.println(newValue);
 	}

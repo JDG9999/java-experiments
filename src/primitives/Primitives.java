@@ -5,7 +5,7 @@ public class Primitives {
 	long myLong = 123;
 	float myFloat = 0.5f; 
 	
-	short myShort = 5;
+	short myShort = 545678;
 	byte myByte = 3;
 	
 	// loss of precision from long to float

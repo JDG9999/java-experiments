@@ -16,7 +16,6 @@ class Diamond {
 	
 	class ConcreteClass implements Boo, Foo {
 
-		@Override
 		public void test() {
 			Boo.super.test();
 		}
